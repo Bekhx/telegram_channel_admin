@@ -8,6 +8,7 @@ import morgan from 'morgan';
 import path from "path";
 import * as http from "http";
 import { routes } from './routes';
+import { BotModule } from "./bot";
 
 class ServerModule {
 
@@ -39,6 +40,7 @@ class ServerModule {
                 message: 'Server is running!'
             });
         });
+        BotModule.start();
         routes(this.app);
         this.http = Http.createServer(this.app);
 
